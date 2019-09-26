@@ -46,12 +46,16 @@ const Model: LoginModelType = {
       });
       // Login successfully
       if (response.status === 'ok') {
-        console.log(window.location.href);
+        console.log("sdf",window.location.href);
+        console.log("adfas",window.location);
         const urlParams = new URL(window.location.href);
+        console.log(urlParams);
         const params = getPageQuery();
+        console.log(params);
         let { redirect } = params as { redirect: string };
         if (redirect) {
           const redirectUrlParams = new URL(redirect);
+          // 判断是否同源；
           if (redirectUrlParams.origin === urlParams.origin) {
             redirect = redirect.substr(urlParams.origin.length);
             if (redirect.match(/^\/.*#/)) {
@@ -62,6 +66,7 @@ const Model: LoginModelType = {
             return;
           }
         }
+        // 改变路由
         yield put(routerRedux.replace(redirect || '/'));
       }
     },
@@ -71,8 +76,14 @@ const Model: LoginModelType = {
     },
     *logout(_, { put }) {
       const { redirect } = getPageQuery();
+      console.log(redirect);
       // redirect
       if (window.location.pathname !== '/user/login' && !redirect) {
+        // 1.后端异步logout;
+
+        // 2. 前端同步logout状态；
+
+        // 3. 前端路由跳转，并改变当前location.href;
         yield put(
           routerRedux.replace({
             pathname: '/user/login',
