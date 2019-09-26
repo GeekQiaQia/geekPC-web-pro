@@ -114,7 +114,7 @@ class Login extends Component<LoginProps, LoginState> {
                 formatMessage({ id: 'user-login.login.message-invalid-credentials' }),
               )}
             <UserName
-              name="userName"
+              name="username"
               placeholder={`${formatMessage({ id: 'user-login.login.userName' })}: admin or user`}
               rules={[
                 {
