@@ -1,5 +1,14 @@
 English | [简体中文](./README.zh-CN.md) | [Русский](./README.ru-RU.md) | [Türkçe](./README.tr-TR.md) | [日本語](./README.ja-JP.md) | [Français](./README.fr-FR.md)
 
+# 前言：
+* 在使用学习Ant Design Pro需要掌握和熟悉的技术栈：
+  * [UmiJS](https://umijs.org/zh/guide/#%E7%89%B9%E6%80%A7)
+  * [Ant Design](https://ant.design/docs/react/practical-projects-cn)
+  * [DvaJS](https://dvajs.com/guide/introduce-class.html#state-%E5%92%8C-view)
+  * [ReactJS](https://reactjs.org/docs/getting-started.html)
+  * [Fetch_API](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Basic_concepts)
+  * [Typescript](https://www.tslang.cn/docs/handbook/basic-types.html)
+
 <h1 align="center">Ant Design Pro</h1>
 
 <div align="center">

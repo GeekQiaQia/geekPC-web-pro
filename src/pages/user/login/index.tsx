@@ -25,10 +25,15 @@ interface LoginState {
   autoLogin: boolean;
 }
 
+/**
+ * 绑定 State 到 View。
+ *
+ */
 @connect(({ login, loading }: ConnectState) => ({
   userLogin: login,
   submitting: loading.effects['login/login'],
 }))
+
 class Login extends Component<LoginProps, LoginState> {
   loginForm: FormComponentProps['form'] | undefined | null = undefined;
 
@@ -37,16 +42,25 @@ class Login extends Component<LoginProps, LoginState> {
     autoLogin: true,
   };
 
+  /**
+   * @description 是否自动登录；
+   * */
   changeAutoLogin = (e: CheckboxChangeEvent) => {
     this.setState({
       autoLogin: e.target.checked,
     });
   };
 
+  /**
+   * @description  处理登录提交函数
+   *
+   * */
   handleSubmit = (err: unknown, values: LoginParamsType) => {
     const { type } = this.state;
     if (!err) {
+      // dispatch an action to model,to change the model status; 从connect 属性中获取dispatch 属性；
       const { dispatch } = this.props;
+
       dispatch({
         type: 'login/login',
         payload: {
@@ -91,11 +105,13 @@ class Login extends Component<LoginProps, LoginState> {
   renderMessage = (content: string) => (
     <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />
   );
-
+ // render 函数渲染；
   render() {
+
     const { userLogin, submitting } = this.props;
     const { status, type: loginType } = userLogin;
     const { type, autoLogin } = this.state;
+
     return (
       <div className={styles.main}>
         <LoginComponents

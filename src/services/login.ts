@@ -1,8 +1,8 @@
 import request from '@/utils/request';
 const rootPath='/server/api';
-
+// 定义login 接口函数；
 export interface LoginParamsType {
-  userName: string;
+  username: string;
   password: string;
   mobile: string;
   captcha: string;

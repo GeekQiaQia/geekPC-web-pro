@@ -181,6 +181,7 @@ export default {
   chainWebpack: webpackPlugin,
 
   proxy: {
+    // 本地测试服务
     '/server/api/': {
       target: 'http://127.0.0.1:8360/',
       changeOrigin: true,

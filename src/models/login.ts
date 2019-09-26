@@ -12,7 +12,9 @@ export interface StateType {
   type?: string;
   currentAuthority?: 'user' | 'guest' | 'admin';
 }
-
+/***
+ * @description 定义model 接口；
+ * */
 export interface LoginModelType {
   namespace: string;
   state: StateType;
@@ -28,14 +30,16 @@ export interface LoginModelType {
 
 const Model: LoginModelType = {
   namespace: 'login',
-
+// model 初始状态数据；
   state: {
     status: undefined,
   },
-
+// 处理异步逻辑 effects； 使用generate 函数；
   effects: {
-    *login({ payload }, { call, put }) {
+    * login({ payload }, { call, put }) {
+      // 调用统一管理的service 请求函数；call 发送异步请求；返回json 对象；
       const response = yield call(fakeAccountLogin, payload);
+      // put 函数同步改变state 状态；
       yield put({
         type: 'changeLoginStatus',
         payload: response,
@@ -80,8 +84,9 @@ const Model: LoginModelType = {
       }
     },
   },
-
+// 同步更新state的reducers;接收action,同步更新state;
   reducers: {
+    // 同步update state;
     changeLoginStatus(state, { payload }) {
       setAuthority(payload.currentAuthority);
       return {
