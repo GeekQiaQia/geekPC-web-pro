@@ -45,7 +45,7 @@ const Model: LoginModelType = {
         payload: response,
       });
       // Login successfully
-      if (response.status === 'ok') {
+      if (response.data.code === '0000') {
         console.log("sdf",window.location.href);
         console.log("adfas",window.location);
         const urlParams = new URL(window.location.href);
