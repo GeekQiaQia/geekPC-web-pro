@@ -120,6 +120,11 @@ export default {
               component: './Welcome',
             },
             {
+              name: 'settings',
+              path: '/account/settings',
+              component: './account/settings',
+            },
+            {
               component: './404',
             },
           ],
@@ -153,7 +158,7 @@ export default {
         resourcePath: string;
       },
       _: string,
-      localName: string
+      localName: string,
     ) => {
       if (
         context.resourcePath.includes('node_modules') ||
